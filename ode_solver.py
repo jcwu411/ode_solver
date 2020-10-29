@@ -6,6 +6,7 @@ Created on 28/10/2020
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import MultipleLocator
 
 
 # Ordinary differential equation
@@ -89,18 +90,3 @@ class Ode:
         q4 = self.dt * self.F(x+q3)
         x_new = x + 1/6*(q1+2*q2+2*q3+q4)
         return x_new
-
-#  --------------------------------------------
-#  Plotting
-#  ____________________________________________
-
-
-def plot3d(data, style="-r", lw=1.0, ti="Plot", xl="X", yl="Y", zl="Z", fn="plot3d.pdf"):
-    x, y, z = data[:, 0], data[:, 1], data[:, 2]
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    ax.set(title=ti, xlabel=xl, ylabel=yl, zlabel=zl)
-    ax.plot(x, y, z, style, linewidth=lw)
-    plt.savefig(fn)
-    plt.show()
-    plt.close()
